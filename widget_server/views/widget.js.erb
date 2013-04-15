@@ -1,0 +1,43 @@
+var Widget = (function(window, undefined) {
+
+  var Widget = {};
+
+  function loadRequireScript(callback) {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = "http://localhost:3030/scripts/lib/require.js";
+    script.setAttribute('data-main', 'http://localhost:3030/scripts/widget/header.js')
+
+    var entry = document.getElementsByTagName('script')[0];
+    entry.parentNode.insertBefore(script, entry);
+
+    script.onload = script.onreadystatechange = function() {
+      var rdyState = script.readyState;
+      if(!rdyState || /complete|loaded/.test(script.readyState)) {
+        require(["header"], function(header){
+          callback(header);
+        });
+        script.onload = null;
+        script.onreadystatechange = null;
+      }
+    };
+  }
+  function getWidgetParams() {
+    console.log("Get Widget Params")
+    return {name: '<%= @pass_me %>'};
+  }
+  function drawWidget(html) {
+    var div = document.createElement('div');
+    div.innerHTML = html;
+    document.body.insertBefore(div, document.body.firstChild);
+  }
+
+  loadRequireScript(function(header) {
+    var params = getWidgetParams();
+    var html = header.render(params);
+    drawWidget(html);
+  });
+
+  return Widget;
+
+})(window);

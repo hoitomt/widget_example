@@ -1,0 +1,5 @@
+echo "Starting Widget Server on port 3030"
+dir=~/Code/sandbox/widget_example/widget_server
+port=3030
+cd $dir
+shotgun -p $port

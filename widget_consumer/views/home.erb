@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        script.src = 'http://localhost:3030/widget.js';
+        script.async = true;
+        var entry = document.getElementsByTagName('script')[0];
+        entry.parentNode.insertBefore(script, entry);
+      })();
+    </script>
+
+  </head>
+  <body>
+    <h3>Widget Consumer</h3>
+  </body>
+</html>
