@@ -1,5 +1,5 @@
 echo "Starting Consumer on port 5001"
-dir=~/Code/sandbox/widget_example/widget_server
+dir=~/Code/sandbox/widget_example/widget_consumer
 port=5001
 cd $dir
 shotgun -p $port

@@ -1,5 +1,5 @@
 #Widget Example
-This repo contains two separate sinatra projects
+This repo contains two separate ruby/sinatra projects
 
   1. Widget server - This will run the widget server on port 3030
   2. Widget consumer - This will run the consumer on port 5001
